@@ -2,7 +2,7 @@ import math
 from functools import reduce
 
 
-def selectCoins(init_value = 292):
+def selectCoins(init_value):
     """ sumOfSquares
 
     Asks the user to enter an amount of money (in pence) 
@@ -17,40 +17,21 @@ def selectCoins(init_value = 292):
     returns:
         Those pennies sorted into most significant coin factor.
     """
-    two_pounds = (init_value - (init_value % 200))
-    init_value = init_value - two_pounds
+    amount_of_coins = {200:0,100:0,50:0,20:0,10:0,5:0,2:0,1:0}
+    for coin in list(amount_of_coins):
+        amount_of_coins[coin] = (init_value - (init_value % coin))
+        init_value = init_value - amount_of_coins[coin]
+    return amount_of_coins
 
-    one_pound = (init_value - (init_value % 100))
-    init_value = init_value - one_pound
-
-    fifty_pence = (init_value - (init_value % 50))
-    init_value = init_value - fifty_pence
-
-    twenty_pence = (init_value - (init_value % 20))
-    init_value = init_value - twenty_pence
-
-    ten_pence = (init_value - (init_value % 10))
-    init_value = init_value - ten_pence
-
-    five_pence = (init_value - (init_value % 5))
-    init_value = init_value - five_pence
-
-    two_pence = (init_value - (init_value % 2))
-    init_value = init_value - two_pence
-
-    one_pence = (init_value - (init_value % 1))
-    init_value = init_value - one_pence
-    return [two_pounds, one_pound, fifty_pence, twenty_pence, ten_pence, five_pence, two_pence, one_pence]
-
-x = selectCoins(18923)
+x = selectCoins(8934123)
 print("£2: %d| £1: %d| 50p: %d| 20p: %d| 10p: %d| 5p: %d| 2p: %d| 1p: %d"%(
-        x[0]/200, 
-        x[1]/100, 
-        x[2]/50, 
-        x[3]/20, 
-        x[4]/10, 
+        x[200]/200, 
+        x[100]/100, 
+        x[50]/50, 
+        x[20]/20, 
+        x[10]/10, 
         x[5]/5, 
-        x[6]/2, 
-        x[7]/1
+        x[2]/2, 
+        x[1]/1
     )
 )
