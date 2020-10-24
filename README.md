@@ -1,4 +1,4 @@
-# python-math-examples
+# Python Math Examples
 ## Examples of math functions for learning.
 
 ### General maths functions
