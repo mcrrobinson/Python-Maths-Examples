@@ -1,5 +1,6 @@
 language: python
-go: 
+os: windows
+python: 
   - "3.7.x"
 install: true
 script: 
