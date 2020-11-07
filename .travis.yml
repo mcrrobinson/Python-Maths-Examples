@@ -1,0 +1,8 @@
+language: python
+go: 
+  - "3.7.x"
+install: true
+script: 
+  - cd "Weight Converter (practP1)" && python pract01.py
+  - cd "Simple Math (practP2)" && python pract02.py
+  - gcd "Strings and Files (practP4)" && python pract04.py
